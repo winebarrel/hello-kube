@@ -1,0 +1,7 @@
+.git
+.bundle
+log
+test
+tmp
+vendor/bundle
+Gemfile.lock

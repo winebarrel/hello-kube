@@ -1,0 +1,5 @@
+- groups:
+    - system:bootstrappers
+    - system:nodes
+  rolearn: arn:aws:iam::822997939312:role/eks-winebarrel-ng-node-instance
+  username: system:node:{{EC2PrivateDNSName}}
