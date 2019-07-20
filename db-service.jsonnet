@@ -1,22 +1,21 @@
 {
-  apiVersion: "v1",
-  kind: "Service",
+  apiVersion: 'v1',
+  kind: 'Service',
   metadata: {
-    namespace: "staging",
-    name: "hello-db",
+    name: 'hello-db',
     labels: {
-      app: "hello-db",
+      app: 'hello-db',
     },
   },
   spec: {
-    type: "ClusterIP",
+    type: 'ClusterIP',
     ports: [
       {
         port: 3306,
       },
     ],
     selector: {
-      app: "db",
+      app: 'db',
     },
   },
 }

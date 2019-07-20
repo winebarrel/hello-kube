@@ -1,16 +1,15 @@
 {
-  apiVersion: "extensions/v1beta1",
-  kind: "Ingress",
+  apiVersion: 'extensions/v1beta1',
+  kind: 'Ingress',
   metadata: {
-    namespace: "staging",
-    name: "ingress",
+    name: 'ingress',
     annotations: {
-      "kubernetes.io/ingress.class": "alb",
-      "alb.ingress.kubernetes.io/inbound-cidrs": std.join(",", ["0.0.0.0/0"]),
-      "alb.ingress.kubernetes.io/scheme": "internet-facing",
+      'kubernetes.io/ingress.class': 'alb',
+      'alb.ingress.kubernetes.io/inbound-cidrs': std.join(',', ['0.0.0.0/0']),
+      'alb.ingress.kubernetes.io/scheme': 'internet-facing',
     },
     labels: {
-      app: "hello-app",
+      app: 'hello-app',
     },
   },
   spec: {
@@ -19,9 +18,9 @@
         http: {
           paths: [
             {
-              path: "/*",
+              path: '/*',
               backend: {
-                serviceName: "hello-app",
+                serviceName: 'hello-app',
                 servicePort: 80,
               },
             },

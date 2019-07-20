@@ -1,20 +1,19 @@
 {
-  apiVersion: "v1",
-  kind: "Service",
+  apiVersion: 'v1',
+  kind: 'Service',
   metadata: {
-    namespace: "staging",
-    name: "hello-app",
+    name: 'hello-app',
   },
   spec: {
     ports: [
       {
         port: 80,
-        targetPort: "hello-app",
+        targetPort: 'hello-app',
       },
     ],
-    type: "NodePort",
+    type: 'NodePort',
     selector: {
-      app: "hello-app",
+      app: 'hello-app',
     },
   },
 }

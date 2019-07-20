@@ -1,71 +1,70 @@
 {
-  apiVersion: "apps/v1",
-  kind: "Deployment",
+  apiVersion: 'apps/v1',
+  kind: 'Deployment',
   metadata: {
-    namespace: "staging",
-    name: "hello-app",
+    name: 'hello-app',
     labels: {
-      app: "hello-app",
+      app: 'hello-app',
     },
   },
   spec: {
     replicas: 1,
     selector: {
       matchLabels: {
-        app: "hello-app",
+        app: 'hello-app',
       },
     },
     template: {
       metadata: {
         labels: {
-          app: "hello-app",
+          app: 'hello-app',
         },
       },
       spec: {
         containers: [
           {
-            image: "822997939312.dkr.ecr.ap-northeast-1.amazonaws.com/hello-app:v3",
-            imagePullPolicy: "Always",
-            name: "hello-app",
+            image: '822997939312.dkr.ecr.ap-northeast-1.amazonaws.com/hello-app:v3',
+            imagePullPolicy: 'Always',
+            name: 'hello-app',
             ports: [
               {
-                name: "hello-app",
+                name: 'hello-app',
                 containerPort: 3000,
               },
             ],
             env: [
               {
-                name: "RAILS_ENV",
-                value: "development",
+                name: 'RAILS_ENV',
+                value: 'development',
               },
               {
-                name: "DATABASE_HOST",
-                value: "hello-db",
+                name: 'DATABASE_HOST',
+                value: 'hello-db',
               },
               {
-                name: "DATABASE_NAME",
+                name: 'DATABASE_NAME',
                 valueFrom: {
                   configMapKeyRef: {
-                    name: "common-cm",
-                    key: "MYSQL_DATABASE",
+                    name: 'common-cm',
+                    key: 'MYSQL_DATABASE',
                   },
                 },
               },
               {
-                name: "DATABASE_USER",
+                name: 'DATABASE_USER',
                 valueFrom: {
                   configMapKeyRef: {
-                    name: "common-cm",
-                    key: "MYSQL_USER",
+                    name: 'common-cm',
+                    key: 'MYSQL_USER',
                   },
                 },
               },
               {
-                name: "DATABASE_PASSWORD",
+                name: 'DATABASE_PASSWORD',
                 valueFrom: {
                   secretKeyRef: {
-                    name: "common-secret",
-                    key: "MYSQL_PASSWORD",
+                    name: 'common-secret',
+                    key: 'MYSQL_PASSWORD',
                   },
                 },
               },

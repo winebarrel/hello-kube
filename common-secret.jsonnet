@@ -1,13 +1,11 @@
 {
-  kind: "Secret",
-  apiVersion: "v1",
+  kind: 'Secret',
+  apiVersion: 'v1',
   metadata: {
-    name: "common-secret",
-    namespace: "staging",
-    creationTimestamp: null,
+    name: 'common-secret',
   },
   data: {
-    MYSQL_PASSWORD: "dGlnZXI=",
-    MYSQL_ROOT_PASSWORD: "cm9vdA==",
+    MYSQL_PASSWORD: 'dGlnZXI=',
+    MYSQL_ROOT_PASSWORD: 'cm9vdA==',
   },
 }
