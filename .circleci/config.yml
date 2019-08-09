@@ -12,6 +12,7 @@ jobs:
       - run:
           command: |
             aws eks update-kubeconfig --name winebarrel
+            cat /home/circleci/.kube/config
             echo hello
 orbs:
   kubernetes: circleci/kubernetes@0.3.0
