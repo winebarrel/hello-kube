@@ -12,8 +12,7 @@ jobs:
       - run:
           command: |
             aws eks update-kubeconfig --name winebarrel
-            cat /home/circleci/.kube/config
-            echo hello
+            kubectl get po
 orbs:
   kubernetes: circleci/kubernetes@0.3.0
   aws-cli: circleci/aws-cli@0.1.13
