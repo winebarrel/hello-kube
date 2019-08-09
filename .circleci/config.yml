@@ -1,0 +1,7 @@
+obs:
+  build:
+    steps:
+      - checkout
+      - run:
+          command: >
+            echo hello
