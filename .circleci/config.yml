@@ -1,6 +1,8 @@
 version: 2.1
 jobs:
   build:
+    environment:
+      AWS_DEFAULT_REGION: ap-northeast-1
     docker:
       - image: circleci/ruby:latest
     steps:
@@ -9,6 +11,7 @@ jobs:
       - aws-cli/install
       - run:
           command: >
+            aws eks update-kubeconfig --name winebarrel
             echo hello
 orbs:
   kubernetes: circleci/kubernetes@0.3.0
