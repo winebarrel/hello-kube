@@ -10,7 +10,7 @@ jobs:
       - kubernetes/install
       - aws-cli/install
       - run:
-          command: >
+          command: |
             aws eks update-kubeconfig --name winebarrel
             echo hello
 orbs:
