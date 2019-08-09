@@ -1,10 +1,13 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
       - image: circleci/ruby:latest
     steps:
       - checkout
+      - kube-orb/install
       - run:
           command: >
             echo hello
+orbs:
+  kube-orb: circleci/kubernetes@1.0.0
