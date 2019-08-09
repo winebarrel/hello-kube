@@ -5,7 +5,7 @@ jobs:
       - image: circleci/ruby:latest
     steps:
       - checkout
-      - kube-orb/install
+      - kubernetes/install
       - run:
           command: >
             echo hello
