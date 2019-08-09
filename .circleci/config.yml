@@ -6,8 +6,10 @@ jobs:
     steps:
       - checkout
       - kubernetes/install
+      - aws-cli/install
       - run:
           command: >
             echo hello
 orbs:
   kubernetes: circleci/kubernetes@0.3.0
+  aws-cli: circleci/aws-cli@0.1.13
