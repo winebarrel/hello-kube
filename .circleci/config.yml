@@ -10,4 +10,4 @@ jobs:
           command: >
             echo hello
 orbs:
-  kube-orb: circleci/kubernetes@1.0.0
+  kubernetes: circleci/kubernetes@0.3.0
