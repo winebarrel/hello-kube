@@ -23,7 +23,7 @@
       spec: {
         containers: [
           {
-            image: '822997939312.dkr.ecr.ap-northeast-1.amazonaws.com/hello-app:v3',
+            image: '822997939312.dkr.ecr.ap-northeast-1.amazonaws.com/hello-app:latest',
             imagePullPolicy: 'Always',
             name: 'hello-app',
             ports: [
