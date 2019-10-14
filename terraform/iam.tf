@@ -282,3 +282,46 @@ resource "aws_iam_role_policy_attachment" "aws_alb_ingress_controller" {
   policy_arn = aws_iam_policy.aws_alb_ingress_controller.arn
 }
 
+/*
+module "cluster_autoscaler_iamserviceaccount" {
+  source                  = "./modules/iamserviceaccount"
+  openid_connect_provider = aws_iam_openid_connect_provider.iamserviceaccount
+
+  serviceaccount = {
+    namespace = "kube-system"
+    name      = "cluster-autoscaler"
+  }
+}
+*/
+
+resource "aws_iam_role" "cluster_autoscaler" {
+  name = "cluster-autoscaler"
+  #assume_role_policy = module.cluster_autoscaler_iamserviceaccount.assume_role_policy.json
+  assume_role_policy = data.aws_iam_policy_document.kube2iam_assume_role_policy.json
+}
+
+# cf. https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#attach-iam-policy-to-nodegroup
+data "aws_iam_policy_document" "cluster_autoscaler_policy" {
+  statement {
+    actions = [
+      "autoscaling:DescribeAutoScalingGroups",
+      "autoscaling:DescribeAutoScalingInstances",
+      "autoscaling:DescribeLaunchConfigurations",
+      "autoscaling:DescribeTags",
+      "autoscaling:SetDesiredCapacity",
+      "autoscaling:TerminateInstanceInAutoScalingGroup",
+    ]
+
+    resources = ["*"]
+  }
+}
+
+resource "aws_iam_policy" "cluster_autoscaler" {
+  name   = "cluster-autoscaler"
+  policy = data.aws_iam_policy_document.cluster_autoscaler_policy.json
+}
+
+resource "aws_iam_role_policy_attachment" "cluster_autoscaler" {
+  role       = aws_iam_role.cluster_autoscaler.name
+  policy_arn = aws_iam_policy.cluster_autoscaler.arn
+}
