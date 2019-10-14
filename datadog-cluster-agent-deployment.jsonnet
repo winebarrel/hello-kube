@@ -19,11 +19,11 @@
             env: [
               {
                 name: 'DD_API_KEY',
-                value: '<YOUR_API_KEY>',
+                value: '2f663557ba16c66cae349a122280d9de',
               },
               {
                 name: 'DD_APP_KEY',
-                value: '<YOUR_APP_KEY>',
+                value: 'e2aaa149602950142ba5e45e41ea8aab24ee2341',
               },
               {
                 name: 'DD_COLLECT_KUBERNETES_EVENTS',
