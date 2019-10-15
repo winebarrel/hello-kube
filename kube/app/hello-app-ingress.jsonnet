@@ -25,7 +25,7 @@
   spec: {
     rules: [
       {
-        host: 'hello.winebarrel.work',
+        host: std.format('%s.winebarrel.work', subdomain),
         http: {
           paths: [
             {
@@ -44,7 +44,11 @@
             },
           ],
         },
-      },
+      }
+      for subdomain in [
+        'hello',
+        'hello2',
+      ]
     ],
   },
 }
