@@ -5,6 +5,7 @@
 ```sh
 brew install kubernetes-cli
 brew install kubecfg
+brew install eksctl
 aws eks update-kubeconfig --name winebarrel
 ```
 
@@ -35,6 +36,15 @@ eksctl create cluster \
 
 ```sh
 eksctl create ng -f nodegroup.yaml
+```
+
+## tail -f logs
+
+```sh
+kubectl logs -l app=hello-app -f
+kubectl logs -n kube-system -l app=external-dns -f
+kubectl logs -n kube-system -l app.kubernetes.io/name=alb-ingress-controller -f
+kubectl logs -n kubernetes-external-secrets -l name=kubernetes-external-secrets -f
 ```
 
 ## Related links
