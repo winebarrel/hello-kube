@@ -68,3 +68,4 @@ kubectl exec -it $(kubectl get po -l app=hello-app --no-headers -o custom-column
 * https://dev.classmethod.jp/cloud/aws/eks-aws-alb-ingress-controller/
 * https://github.com/bitnami/kubecfg
 * https://github.com/jtblin/kube2iam
+* https://www.datadoghq.com/blog/eks-monitoring-datadog/
