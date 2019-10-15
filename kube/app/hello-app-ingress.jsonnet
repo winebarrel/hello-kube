@@ -3,6 +3,7 @@
   kind: 'Ingress',
   metadata: {
     name: 'hello-app-ingress',
+    // cf. https://kubernetes-sigs.github.io/aws-alb-ingress-controller/guide/ingress/annotation/
     annotations: {
       'kubernetes.io/ingress.class': 'alb',
       //'alb.ingress.kubernetes.io/inbound-cidrs': std.join(',', ['0.0.0.0/0']),
