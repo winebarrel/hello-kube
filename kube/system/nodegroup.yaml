@@ -13,6 +13,7 @@ nodeGroups:
     privateNetworking: true
     tags:
       datadog: 'true'
+    # cf. https://eksctl.io/usage/iam-policies/
     iam:
       instanceRoleARN: arn:aws:iam::822997939312:role/nodegroup-winebarrel-ng-workers
       instanceProfileARN: arn:aws:iam::822997939312:instance-profile/nodegroup-winebarrel-ng-workers
