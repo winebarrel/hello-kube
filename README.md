@@ -1,6 +1,14 @@
 # hello-kube
 
-## Getting Started
+## Preparation
+
+```sh
+brew install kubernetes-cli
+brew install kubecfg
+aws eks update-kubeconfig --name winebarrel
+```
+
+## App Getting Started
 
 ```sh
 cd hello-app
