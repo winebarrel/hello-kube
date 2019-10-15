@@ -5,13 +5,12 @@
     name: 'hello-app',
   },
   spec: {
+    type: 'ClusterIP',
     ports: [
       {
-        port: 80,
-        targetPort: 'hello-app',
+        port: 3000,
       },
     ],
-    type: 'NodePort',
     selector: {
       app: 'hello-app',
     },

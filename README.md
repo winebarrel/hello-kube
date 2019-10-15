@@ -41,10 +41,25 @@ eksctl create ng -f nodegroup.yaml
 ## tail -f logs
 
 ```sh
+kubectl logs -l app=hello-app-nginx -f
 kubectl logs -l app=hello-app -f
 kubectl logs -n kube-system -l app=external-dns -f
 kubectl logs -n kube-system -l app.kubernetes.io/name=alb-ingress-controller -f
 kubectl logs -n kubernetes-external-secrets -l name=kubernetes-external-secrets -f
+```
+
+## Reload pods
+
+```sh
+kubectl set env deploy/hello-app-nginx RELOAD_DATE="$(date)"
+kubectl set env deploy/hello-app RELOAD_DATE="$(date)"
+```
+
+## Login container
+
+```sh
+kubectl exec -it $(kubectl get po -l app=hello-app-nginx --no-headers -o custom-columns=NAME:.metadata.name | head -n 1) sh
+kubectl exec -it $(kubectl get po -l app=hello-app --no-headers -o custom-columns=NAME:.metadata.name | head -n 1) bash
 ```
 
 ## Related links
