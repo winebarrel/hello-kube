@@ -38,7 +38,7 @@
             {
               path: '/*',
               backend: {
-                serviceName: 'hello-app',
+                serviceName: 'hello-app-nginx',
                 servicePort: 80,
               },
             },
