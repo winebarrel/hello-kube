@@ -41,6 +41,7 @@ eksctl create ng -f nodegroup.yaml
 ## tail -f logs
 
 ```sh
+kubectl logs -l app=hello-app-nginx -f
 kubectl logs -l app=hello-app -f
 kubectl logs -n kube-system -l app=external-dns -f
 kubectl logs -n kube-system -l app.kubernetes.io/name=alb-ingress-controller -f
