@@ -3,14 +3,14 @@ kind: ClusterRole
 metadata:
   name: datadog-agent
 rules:
-- apiGroups:      # This is required by the agent to query the Kubelet API.
-  - ""
-  resources:
-  - nodes/metrics
-  - nodes/spec
-  - nodes/proxy   # Required to get /pods
-  verbs:
-  - get
+  - apiGroups: # This is required by the agent to query the Kubelet API.
+      - ""
+    resources:
+      - nodes/metrics
+      - nodes/spec
+      - nodes/proxy # Required to get /pods
+    verbs:
+      - get
 ---
 kind: ServiceAccount
 apiVersion: v1
@@ -27,6 +27,6 @@ roleRef:
   kind: ClusterRole
   name: datadog-agent
 subjects:
-- kind: ServiceAccount
-  name: datadog-agent
-  namespace: default
+  - kind: ServiceAccount
+    name: datadog-agent
+    namespace: default

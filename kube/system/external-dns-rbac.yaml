@@ -51,6 +51,6 @@ roleRef:
   kind: ClusterRole
   name: external-dns
 subjects:
-- kind: ServiceAccount
-  name: external-dns
-  namespace: kube-system
+  - kind: ServiceAccount
+    name: external-dns
+    namespace: kube-system

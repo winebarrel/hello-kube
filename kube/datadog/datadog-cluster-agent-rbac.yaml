@@ -3,49 +3,49 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: datadog-cluster-agent
 rules:
-- apiGroups:
-  - ""
-  resources:
-  - services
-  - events
-  - endpoints
-  - pods
-  - nodes
-  - componentstatuses
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - "autoscaling"
-  resources:
-  - horizontalpodautoscalers
-  verbs:
-  - list
-  - watch
-- apiGroups:
-  - ""
-  resources:
-  - configmaps
-  resourceNames:
-  - datadogtoken             # Kubernetes event collection state
-  - datadog-leader-election  # Leader election token
-  verbs:
-  - get
-  - update
-- apiGroups:                 # To create the leader election token
-  - ""
-  resources:
-  - configmaps
-  verbs:
-  - create
-  - get
-  - update
-- nonResourceURLs:
-  - "/version"
-  - "/healthz"
-  verbs:
-  - get
+  - apiGroups:
+      - ""
+    resources:
+      - services
+      - events
+      - endpoints
+      - pods
+      - nodes
+      - componentstatuses
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - "autoscaling"
+    resources:
+      - horizontalpodautoscalers
+    verbs:
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+    resourceNames:
+      - datadogtoken # Kubernetes event collection state
+      - datadog-leader-election # Leader election token
+    verbs:
+      - get
+      - update
+  - apiGroups: # To create the leader election token
+      - ""
+    resources:
+      - configmaps
+    verbs:
+      - create
+      - get
+      - update
+  - nonResourceURLs:
+      - "/version"
+      - "/healthz"
+    verbs:
+      - get
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -56,9 +56,9 @@ roleRef:
   kind: ClusterRole
   name: datadog-cluster-agent
 subjects:
-- kind: ServiceAccount
-  name: datadog-cluster-agent
-  namespace: default
+  - kind: ServiceAccount
+    name: datadog-cluster-agent
+    namespace: default
 ---
 kind: ServiceAccount
 apiVersion: v1

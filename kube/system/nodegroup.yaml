@@ -12,7 +12,7 @@ nodeGroups:
     desiredCapacity: 1
     privateNetworking: true
     tags:
-      datadog: 'true'
+      datadog: "true"
     # cf. https://eksctl.io/usage/iam-policies/
     iam:
       instanceRoleARN: arn:aws:iam::822997939312:role/nodegroup-winebarrel-ng-workers

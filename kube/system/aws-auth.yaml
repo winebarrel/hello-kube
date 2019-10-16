@@ -6,8 +6,8 @@ metadata:
 data:
   mapRoles: |
     - groups:
-      - system:bootstrappers
-      - system:nodes
+        - system:bootstrappers
+        - system:nodes
       rolearn: arn:aws:iam::822997939312:role/nodegroup-winebarrel-ng-workers
       username: system:node:{{EC2PrivateDNSName}}
   mapUsers: |
