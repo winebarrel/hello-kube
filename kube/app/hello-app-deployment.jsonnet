@@ -68,6 +68,15 @@
                   },
                 },
               },
+              {
+                name: 'ROLLBAR_ACCESS_TOKEN',
+                valueFrom: {
+                  secretKeyRef: {
+                    name: 'common-secret',
+                    key: 'ROLLBAR_ACCESS_TOKEN',
+                  },
+                },
+              },
             ],
           },
         ],

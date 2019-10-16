@@ -9,17 +9,6 @@ brew install eksctl
 aws eks update-kubeconfig --name winebarrel
 ```
 
-## App Getting Started
-
-```sh
-cd hello-app
-docker-compose build
-docker-compose run app env DATABASE_HOST=db bundle exec rails db:create
-docker-compose run app bundle exec rails db:migrate
-docker-compose up
-open http://localhost:3000/items
-```
-
 ## Create cluster
 
 ```sh
@@ -60,6 +49,26 @@ kubectl set env deploy/hello-app RELOAD_DATE="$(date)"
 ```sh
 kubectl exec -it $(kubectl get po -l app=hello-app-nginx --no-headers -o custom-columns=NAME:.metadata.name | head -n 1) sh
 kubectl exec -it $(kubectl get po -l app=hello-app --no-headers -o custom-columns=NAME:.metadata.name | head -n 1) bash
+```
+
+## App
+
+### Getting Started
+
+```sh
+cd hello-app
+docker-compose build
+docker-compose run app env DATABASE_HOST=db bundle exec rails db:create
+docker-compose run app bundle exec rails db:migrate
+docker-compose up
+open http://localhost:3000/items
+```
+
+### Docker build & push
+
+```sh
+docker build -t 822997939312.dkr.ecr.ap-northeast-1.amazonaws.com/hello-app:latest .
+docker push 822997939312.dkr.ecr.ap-northeast-1.amazonaws.com/hello-app:latest
 ```
 
 ## Related links
