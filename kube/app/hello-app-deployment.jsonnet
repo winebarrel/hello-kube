@@ -32,6 +32,16 @@
                 containerPort: 3000,
               },
             ],
+            resources: {
+              requests: {
+                memory: '128Mi',
+                cpu: '250m',
+              },
+              limits: {
+                memory: '256Mi',
+                cpu: '500m',
+              },
+            },
             env: [
               {
                 name: 'RAILS_ENV',
