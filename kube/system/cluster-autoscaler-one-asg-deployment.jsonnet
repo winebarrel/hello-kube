@@ -38,7 +38,7 @@
               '--expander=least-waste',
               '--node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/winebarrel',
             ],
-            image: 'k8s.gcr.io/cluster-autoscaler:v1.14.4',
+            image: 'k8s.gcr.io/cluster-autoscaler:v1.14.6',
             imagePullPolicy: 'Always',
             name: 'cluster-autoscaler',
             resources: {

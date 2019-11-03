@@ -282,7 +282,6 @@ resource "aws_iam_role_policy_attachment" "aws_alb_ingress_controller" {
   policy_arn = aws_iam_policy.aws_alb_ingress_controller.arn
 }
 
-/*
 module "cluster_autoscaler_iamserviceaccount" {
   source                  = "./modules/iamserviceaccount"
   openid_connect_provider = aws_iam_openid_connect_provider.iamserviceaccount
@@ -292,12 +291,11 @@ module "cluster_autoscaler_iamserviceaccount" {
     name      = "cluster-autoscaler"
   }
 }
-*/
 
 resource "aws_iam_role" "cluster_autoscaler" {
-  name = "cluster-autoscaler"
-  #assume_role_policy = module.cluster_autoscaler_iamserviceaccount.assume_role_policy.json
-  assume_role_policy = data.aws_iam_policy_document.kube2iam_assume_role_policy.json
+  name               = "cluster-autoscaler"
+  assume_role_policy = module.cluster_autoscaler_iamserviceaccount.assume_role_policy.json
+  #assume_role_policy = data.aws_iam_policy_document.kube2iam_assume_role_policy.json
 }
 
 # cf.
