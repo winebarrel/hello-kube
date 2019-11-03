@@ -16,7 +16,7 @@ eksctl create cluster \
   --name winebarrel \
   --version 1.14 \
   --region ap-northeast-1 \
-  --vpc-public-subnets=subnets=subnet-0fce258d88c79de2d,subnet-08432b0de92329415 \
+  --vpc-public-subnets=subnet-0fce258d88c79de2d,subnet-08432b0de92329415 \
   --vpc-private-subnets=subnet-08edcfbbf03fbdd10,subnet-03b00d77c2be379b5 \
   --without-nodegroup
 ```
