@@ -1,0 +1,4 @@
+- userarn: arn:aws:iam::822997939312:root
+  username: root
+  groups:
+  - system:masters

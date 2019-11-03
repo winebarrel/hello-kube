@@ -27,6 +27,15 @@ eksctl create cluster \
 eksctl create ng -f nodegroup.yaml
 ```
 
+## Enable IRSA
+
+```sh
+eksctl utils associate-iam-oidc-provider --name winebarrel --approve
+aws iam list-open-id-connect-providers
+#terraform state rm aws_iam_openid_connect_provider.iamserviceaccount
+terraform import aws_iam_openid_connect_provider.iamserviceaccount arn:aws:iam::822997939312:oidc-provider/oidc.eks.ap-northeast-1.amazonaws.com/id/...
+```
+
 ## tail -f logs
 
 ```sh

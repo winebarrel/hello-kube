@@ -29,7 +29,12 @@ resource "aws_security_group" "eks_winebarrel_alb_ingress" {
 }
 
 data "aws_security_group" "cluster_shared_node" {
-  name = "eksctl-winebarrel-cluster-ClusterSharedNodeSecurityGroup-IAW2JA5NEDL8"
+  vpc_id = data.aws_vpc.sandbox3.id
+
+  filter {
+    name   = "group-name"
+    values = ["eksctl-winebarrel-cluster-ClusterSharedNodeSecurityGroup-*"]
+  }
 }
 
 resource "aws_security_group_rule" "cluster_shared_node_allow_alb_ingress" {
