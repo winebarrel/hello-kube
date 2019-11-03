@@ -300,7 +300,9 @@ resource "aws_iam_role" "cluster_autoscaler" {
   assume_role_policy = data.aws_iam_policy_document.kube2iam_assume_role_policy.json
 }
 
-# cf. https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#attach-iam-policy-to-nodegroup
+# cf.
+# - https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#attach-iam-policy-to-nodegroup
+# - https://aws.amazon.com/jp/premiumsupport/knowledge-center/eks-cluster-autoscaler-setup/
 data "aws_iam_policy_document" "cluster_autoscaler_policy" {
   statement {
     actions = [

@@ -10,6 +10,8 @@ nodeGroups:
     labels: { role: workers }
     instanceType: t3.medium
     desiredCapacity: 1
+    minSize: 1
+    maxSize: 15
     privateNetworking: true
     tags:
       datadog: "true"

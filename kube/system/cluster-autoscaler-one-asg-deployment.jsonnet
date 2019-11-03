@@ -17,12 +17,14 @@
     },
     template: {
       metadata: {
+        labels: {
+          app: 'cluster-autoscaler',
+        },
         annotations: {
           'iam.amazonaws.com/role': 'arn:aws:iam::822997939312:role/cluster-autoscaler',
           'prometheus.io/port': '8085',
           'prometheus.io/scrape': 'true',
         },
-        labels: { app: 'cluster-autoscaler' },
       },
       spec: {
         containers: [
@@ -36,7 +38,7 @@
               '--expander=least-waste',
               '--node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/winebarrel',
             ],
-            image: 'gcr.io/google-containers/cluster-autoscaler:v1.16.1',
+            image: 'k8s.gcr.io/cluster-autoscaler:v1.14.4',
             imagePullPolicy: 'Always',
             name: 'cluster-autoscaler',
             resources: {
